@@ -39,7 +39,7 @@
     border-color: #614a3d
 }
 
-.single-contact:hover::after {
+.single-contact:hover:after {
     opacity: 1;
     -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
@@ -51,7 +51,7 @@
 
 .single-contact:hover .information h4, .single-contact:hover .information h4 span {
     color: #ffffff;
-    top 3px
+    top: 3px;
 }
 
 /* About Area */
@@ -76,3 +76,116 @@
     position: relative;
     z-index: 2;
 }
+
+/* Special Area */
+
+.special-area .container-fluid,.image-area .container-fluid {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.special-item, .single-image-item {
+    float: left;
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.item-content {
+    position: relative;
+}
+.item-content img, .single-image-item img {
+    max-width: 100%;
+}
+.item-hover {
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+    bottom: 10px;
+    height: auto;
+    left: 10px;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    -webkit-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    width: auto;
+}
+.item-content:hover .item-hover {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.hover-text > h1 {
+    color: #ffffff;
+    font-family: "courgette", cursive;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+}
+.item-content:hover .hover-text > h1 {
+    top: 25px;
+}
+.hover-text > p {
+    bottom: 28%;
+    color: #ffffff;
+    opacity: 0;
+    -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    padding: 0;
+    position: absolute;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    -webkit-transition: all 0.3s ease 0.1s;
+    transition: all 0.3s ease 0.1s;
+    left: 20px;
+    right: 20px;
+}
+.item-content:hover p {
+    opacity: 1;
+    -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.hover-text > h1:hover a {
+    color: #be937b;
+}
+.hover-text {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.hover-text .price {
+    bottom: 17%;
+    color: #ffffff;
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    left: 0;
+    opacity: 0;
+    -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    position: absolute;
+    right: 0;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+    -webkit-transition: all 0.3s ease 0.1s;
+    transition: all 0.3s ease 0.1s;
+}
+.item-content:hover .price {
+    opacity: 1;
+    -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
