@@ -189,3 +189,60 @@
     transition-delay: 0.5s;
 }
 
+/* Booking area */
+.booking-form input {
+    margin-bottom: 20px;
+}
+.booking-form input:focus {
+    color: #614a3d;
+    border-color: #614a3d;
+}
+.booking-form input:focus:-ms-input-placeholder {
+    opacity: 1;
+    -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    color: #614a3d;
+}
+
+.booking-form input:focus:-moz-placeholder {
+    opacity: 1;
+    -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    color: #614a3d;
+}
+.booking-form input:focus::-webkit-input-placeholder {
+    opacity: 1;
+    -ms-filter: "Progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    color: #614a3d;
+}
+.booking-form .default-btn {
+    margin-top: 20px;
+    padding: 0 98px;
+}
+.active.day {
+    background: #614a3d none repeat scroll 0 0;
+    color: #ffffff;
+}
+.day {
+    cursor: pointer;
+    text-align: center;
+}
+.datepicker thead tr:nth-child(2) {
+    background: #614a3d none repeat scroll 0 0;
+    color: #ffffff;
+    text-align: center;
+}
+.datepicker-switches {
+    text-align: center;
+}
+.datepicker {
+    padding: 0;
+}
+.date-wrapper .datepicker {
+    padding: 0 17px;
+}
+.datepicker .prev, .datepicker .next {
+    cursor: pointer;
+    font-size: 22px;
+    padding: 0 8px;
+}
+
+/* Client area */
