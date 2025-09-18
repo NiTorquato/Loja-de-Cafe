@@ -56,9 +56,8 @@
     z-index: 999;
 }
 .main-menu ul li:hover > ul{
-    opacity: 1;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    visibility: hidden;
+    opacity: 0;
+    visibility: visible;
 }
 .main-menu ul li ul li a {}
 .main-menu ul li ul li  {
@@ -284,7 +283,7 @@
     width: 216px;
     z-index: 9999;
 }
-#search-from > input {
+#search-form > input {
     background: rgba(0, 0, 0, 0);
     border: 0 none;
     height: 40px;

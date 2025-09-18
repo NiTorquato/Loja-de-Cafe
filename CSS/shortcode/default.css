@@ -111,7 +111,7 @@ ul {
 ::-webkit-input-placeholder{
     color: #969696;
 }
-:-moz-placeholder{
+::-moz-placeholder{
     color: #969696;
     opacity: 1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -177,8 +177,9 @@ input, textarea {
     border: 1px solid #f1f1f1;
     box-shadow: none;
     color: #969696;
-    font-size: 42px;
-    padding-left: 14px;
+    font-size: 14px;
+    height: 42px;
+    padding-left: 17px;
     width: 100%;
 }
 input::-moz-placeholder,
@@ -506,7 +507,7 @@ textarea {
 .bg-1, .bg-2, .bg-3, .bg-4, .bg-5 {
     background-attachment: scroll;
     background-clip: initial;
-    background-color: rgba(0, 0, 0, 0,);
+    background-color: rgba(0, 0, 0, 0);
     background-origin: initial;
     background-position: center center;
     background-repeat: no-repeat;
@@ -530,4 +531,62 @@ textarea {
 .bg-5 {
     background-image: url();
     background-position: right top;
+}
+.overlay-1, .overlay-2 {
+    position: relative;
+} 
+.overlay-1:before, .overlay-2:before {
+    background: rgba(0, 0, 0, 0.35) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+.overlay-2:before {
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+}
+
+/* Section Title*/
+.section-title {
+    margin-bottom: 55px;
+    position: relative;
+}
+.section-title > h1 {
+    color: #5e5e5e;
+    font-family: "Courgett", cursive;
+    line-height: 37px;
+    margin-bottom: 15px;
+}
+.section-title > span {
+    display: block;
+    margin-bottom: 9px;
+}
+.section-title > p {
+    margin: 0;
+}
+
+/* Pagination */
+.pagination-content .pagination li a {
+    background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #ebebeb;
+    border-radius: 50%;
+    color: #303030;
+    display: inline-block;
+    font-size: 13px;
+    height: 38px;
+    line-height: 42px;
+    margin: 0 9px;
+    padding: 0;
+    text-align: center;
+    width: 38px;
+}
+.pagination-content .pagination li a i {
+    font-size: 17px;
+}
+.pagination-content .pagination li a:hover,
+.pagination-content .pagination li.active a {
+    background: #ebebeb none repeat scroll 0 0;
 }

@@ -47,7 +47,7 @@
     padding: 0 27px;
     position: relative;
     text-transform: uppercase;
-    -webkit-transform: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 .banner-btn a:before {

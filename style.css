@@ -317,3 +317,6 @@
 .testimonial-carousel {
     padding: 150px;
 }
+.cliente-area p, .cliente-area h4 {
+    color: #ffffff; /* Define a cor do texto como branco */
+}
