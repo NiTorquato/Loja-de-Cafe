@@ -593,12 +593,12 @@ textarea {
 /* Correção de dimensionamento e centralização forçada para as logos dos clientes */
 
 .single-client {
-    /* Define o contêiner de exibição. Importante para o .client-table-cell */
+    
     display: table;
     width: 100%;
-    /* Define uma altura máxima razoável para a logo no contêiner */
     height: 100px; 
-    overflow: hidden; /* Garante que nada transborde */
+    overflow: hidden; 
+    
 }
 
 .client-table-cell {
@@ -609,15 +609,17 @@ textarea {
 }
 
 .single-client img {
-    /* Força a imagem a não ser maior que a largura do pai (100% da célula) */
+    
     max-width: 100%;
-    /* Força a imagem a não ser maior que a altura do pai (100% da célula) */
     max-height: 100%; 
-    /* Garante que a imagem mantenha suas proporções ao se ajustar */
     height: auto; 
     width: auto;
-    
-    /* Importante para que as regras acima funcionem */
     display: block;
     margin: 0 auto;
 }
+
+.single-client-container {
+  margin-top: 70px; 
+}
+
+
