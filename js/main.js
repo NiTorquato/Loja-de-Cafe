@@ -14,7 +14,7 @@
     });
 
     // Slider Carousel
-    $('.slider-carousel').owlCarousel({
+    $('.slider-wrapper').owlCarousel({
         loop: true,
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
