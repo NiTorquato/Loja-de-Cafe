@@ -14,26 +14,68 @@
     });
 
     // Slider Carousel
-    $('.slider-wrapper').owlCarousel({
-        loop: true,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        smartSpeed: 2500,
-        items: 1,
-        nav: true,
-        navText: ["<i class= 'zmdi zmdi-chevron-left'></i>", "<i class= 'zmdi zmdi-chevron-right'></i>"],
-        dots: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            600: {
-                items: 1,
-            },
-            1000: {
-                items: 1,
-            }
+    function initCustomSlider() {
+        const slides = document.querySelectorAll('.single-slide');
+        if (slides.length === 0) return; 
+        
+        const nextButton = document.querySelector('.next-slide');
+        const prevButton = document.querySelector('.prev-slide');
+        const dotsContainer = document.querySelector('.slider-dots');
+        let currentSlide = 0;
+        let slideInterval;
+        const intervalTime = 5000; // Tempo de troca entre slides (5 segundos)
+
+        // 1. Função principal para exibir o slide
+        function showSlide(index) {
+            // Remove as classes ativas do slide e do dot atual
+            document.querySelector('.active-slide')?.classList.remove('active-slide');
+            document.querySelector('.active-dot')?.classList.remove('active-dot');
+
+            // Atualiza o índice, garantindo o loop (0, 1, ..., último, 0, 1, ...)
+            currentSlide = (index + slides.length) % slides.length;
+
+            // Adiciona as classes ativas ao novo slide e dot
+            slides[currentSlide].classList.add('active-slide');
+            // Busca o dot com o índice correspondente
+            dotsContainer.querySelector(`.dot[data-index="${currentSlide}"]`).classList.add('active-dot');
         }
+
+        // 2. Funções de Navegação e Auto-Slide
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, intervalTime); // Reinicia o auto-slide
+        }
+
+        // 3. Criação e Listeners dos Dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.setAttribute('data-index', index);
+            if (index === 0) {
+                dot.classList.add('active-dot');
+            }
+            dot.addEventListener('click', () => {
+                resetInterval();
+                showSlide(index);
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        // 4. Listeners para os botões de seta
+        if (prevButton) prevButton.addEventListener('click', () => { resetInterval(); showSlide(currentSlide - 1); });
+        if (nextButton) nextButton.addEventListener('click', () => { resetInterval(); nextSlide(); });
+
+        // Inicia o auto-slide
+        resetInterval();
+    }
+    
+    // Inicializar o slider customizado quando o documento estiver pronto (mantendo o uso do jQuery)
+    $(window).on('load', function() {
+        initCustomSlider();
     });
 
     // Testimonial Carousel

@@ -1,42 +1,82 @@
-.slider-area{
+/* nitorquato/loja-de-cafe/Loja-de-Cafe-180f8d49ea23f8355dbde53693a7bf65efe6bc20/CSS/shortcode/slider.css */
+
+/* --------------------------------------------------------
+    1. Estrutura do Slider Customizado
+-------------------------------------------------------- */
+
+/* Correção de Altura e Posicionamento (Importante para evitar que a imagem suma) */
+.slider-area {
     position: relative;
     overflow: hidden;
+    height: 100vh; /* Garante que a seção ocupe a altura total da viewport */
 }
-.slider-area img {
-    width: 100%;
-}
-.slider-area,
-.banner-content,
-.single-slide,
-.owl-item,
-.owl-stage,
-.slider-wrapper,
-.owl-stage-outer,
-.banner-content,
-.container,
-.banner-content .row,
-.banner-content .col-lg-8,
-.banner-content .text-content-wrapper,
-.banner-content .text-content,
-.banner-content .display-table,
-.banner-content .display-table-cell {
+
+/* O wrapper deve ter altura total */
+.slider-wrapper {
+    position: relative;
     height: 100%;
 }
-.text-content-wrapper,
-.slider-area img {
+
+/* Os slides devem se sobrepor para o efeito de fade */
+.single-slide {
+    background-position: top center;
+    background-size: cover;
+    
+    position: absolute; /* Sobrepõe os slides */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Esconde todos os slides por padrão */
+    z-index: 1;
+    transition: opacity 1s ease-in-out; /* Efeito de fade (1 segundo) */
+}
+
+/* O slide ativo fica visível */
+.single-slide.active-slide {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Conteúdo dentro do slide (Manter estrutura original de centralização) */
+.banner-content {
+    height: 100%;
     width: 100%;
 }
 .banner-content .text-content-wrapper {
     display: table;
+    height: 100%;
+    width: 100%;
 }
 .banner-content .text-content {
     display: table-cell;
     vertical-align: middle;
 }
+
+/* Estilos de Conteúdo (Manter estilos originais) */
+.banner-content h3 {
+    color: #ffffff;
+    font-family: "Courgette" "Cursive";
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+.banner-content h1 {
+    color: #ffffff;
+    font-size: 60px;
+    margin-bottom: 36px;
+}
+.banner-content p {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 45px;
+    padding: 0 54px;
+}
 .banner-btn {
     clear: both;
     display: block;
 }
+/* Estilos do Botão (Manter estilos originais) */
 .banner-btn a {
     background: #ffffff none repeat scroll 0 0;
     color: #614a3d;
@@ -82,79 +122,65 @@
 .slider-area .button-default {
     display: inline;
 }
-.banner-content h3 {
-    color: #ffffff;
-    font-family: "Courgette" "Cursive";
-    font-size: 40px;
-    margin-bottom: 30px;
-    text-transform: capitalize;
-}
-.banner-content h1 {
-    color: #ffffff;
-    font-size: 60px;
-    margin-bottom: 36px;
-}
-.banner-content p {
-    color: #ffffff;
-    font-size: 16px;
-    margin-bottom: 45px;
-    padding: 0 54px;
-}
-.slider-area .owl-item:active .banner-content h3,
-.slider-area .owl-item:active .banner-content h1,
-.slider-area .owl-item.active .banner-content p,
-.slider-area .owl-item.active .banner-content .banner-btn {
-    -webkit-animation: 1000ms ease-in-out 0s normal none 1 fadeInUp;
-    animation: 1000ms ease-in-out 0s normal none 1 fadeInUp;
-}
-.slider-area .owl-item.active .banner-content h3 {
-    -webkit-animation-delay: 600ms;
-    animation-delay: 600ms;
-}
-.slider-area .owl-item.active .banner-content h1 {
-    -webkit-animation-delay: 1100ms;
-    animation-delay: 1100ms;
-}
-.slider-area .owl-item.active .banner-content p {
-    -webkit-animation-delay: 1600ms;
-    animation-delay: 1600ms;
-}
-.slider-area .owl-item.active .banner-content .banner-btn {
-    -webkit-animation-delay: 2100ms;
-    animation-delay: 2100ms;
-}
-.owl-nav div {
-    background: #ffffff none repeat scroll 0 0;
+
+/* --------------------------------------------------------
+    2. Navegação Customizada (Botões e Dots)
+-------------------------------------------------------- */
+
+/* Estilos para os botões de navegação customizados (.custom-nav) */
+.custom-nav {
+    background: #ffffff;
     color: #614a3d;
     font-size: 30px;
     height: 40px;
-    left: -46px;
     line-height: 40px;
     margin-top: -20px;
     position: absolute;
     text-align: center;
     top: 50%;
-    -webkit-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
     width: 40px;
     z-index: 999;
+    cursor: pointer;
 }
-.owl-nav .owl-next {
+
+.prev-slide {
+    left: 0px; 
+}
+
+.next-slide {
+    right: 0px; 
     left: auto;
-    right: -46px;  
 }
-.slider-area:hover .owl-nav div {
-    left: 0px;    
-}
-.slider-area:hover .owl-nav .owl-next {
-    left: auto;
-    right: 0;    
-}
-.owl-nav div:hover {
+
+.custom-nav:hover {
     background: #614a3d;
     color: #fff;
 }
-.single-slide {
-    background-position: top center;
-    background-size: cover;
+
+/* Estilos para os Dots (Pontos de Paginação) */
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    text-align: center;
+}
+
+.dot {
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    height: 14px;
+    margin: 0 6px;
+    width: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.dot.active-dot,
+.dot:hover {
+    background: #ffffff;
 }
