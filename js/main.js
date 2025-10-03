@@ -23,7 +23,7 @@
         const dotsContainer = document.querySelector('.slider-dots');
         let currentSlide = 0;
         let slideInterval;
-        const intervalTime = 5000; // Tempo de troca entre slides (5 segundos)
+        const intervalTime = 3000; // Tempo de troca entre slides (3 segundos)
 
         // 1. Função principal para exibir o slide
         function showSlide(index) {
@@ -79,26 +79,64 @@
     });
 
     // Testimonial Carousel
-    $('.testimonial-carousel').owlCarousel({
-        loop: true,
-        margin: 0,
-        dots: true,
-        nav: false,
-        animateOut: 'slideOutDown',
-        animateIn: 'slideInDown',
-        autoplay: false,
-        smartSpeed: 3000,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:1
-            },
-            1000:{
-                items:1
-            }
+    function initTestimonialSlider() {
+        const testimonials = document.querySelectorAll('.testimonial-carousel .single-tesimonial');
+        if (testimonials.length === 0) return; 
+        
+        const dotsContainer = document.querySelector('.testimonial-dots');
+        let currentTestimonial = 0;
+        let slideInterval;
+        const intervalTime = 2000; // Tempo de troca (3 segundos)
+
+        // 1. Função principal para exibir o testemunho
+        function showTestimonial(index) {
+            // Remove as classes ativas
+            document.querySelector('.active-testimonial')?.classList.remove('active-testimonial');
+            dotsContainer.querySelector('.active-dot')?.classList.remove('active-dot');
+
+            // Atualiza o índice, garantindo o loop
+            currentTestimonial = (index + testimonials.length) % testimonials.length;
+
+            // Adiciona as classes ativas
+            testimonials[currentTestimonial].classList.add('active-testimonial');
+            dotsContainer.querySelector(`.dot[data-index="${currentTestimonial}"]`).classList.add('active-dot');
         }
+
+        // 2. Criação e Listeners dos Dots
+        testimonials.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.setAttribute('data-index', index);
+            if (index === 0) {
+                dot.classList.add('active-dot');
+            }
+            dot.addEventListener('click', () => {
+                // Ao clicar, para e reinicia o auto-slide
+                clearInterval(slideInterval);
+                showTestimonial(index);
+                slideInterval = setInterval(nextTestimonial, intervalTime); 
+            });
+            dotsContainer.appendChild(dot);
+        });
+        
+        // 3. Funções de Auto-Slide (Próximo Testemunho)
+        function nextTestimonial() {
+            showTestimonial(currentTestimonial + 1);
+        }
+
+        // 4. Inicia o auto-slide
+        slideInterval = setInterval(nextTestimonial, intervalTime);
+
+        // Garante que o primeiro slide esteja ativo ao carregar
+        if (!document.querySelector('.active-testimonial')) {
+            testimonials[0].classList.add('active-testimonial');
+        }
+    }
+    
+    // Altere a chamada do $(window).on('load', function() { ... }) para incluir a nova função:
+    $(window).on('load', function() {
+        initCustomSlider(); // (Carrossel Principal)
+        initTestimonialSlider(); // (Carrossel de Testemunhos) <--- Adicione esta linha
     });
 
     // Blog Carousel

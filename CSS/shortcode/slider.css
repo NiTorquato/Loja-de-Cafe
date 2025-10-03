@@ -184,3 +184,36 @@
 .dot:hover {
     background: #ffffff;
 }
+
+/* --------------------------------------------------------
+    3. Estilos para o Carrossel de Testemunhos Customizado
+-------------------------------------------------------- */
+
+.testimonial-carousel {
+    position: relative;
+    height: 100px; /* Define uma altura para o contêiner do carrossel */
+    overflow: hidden;
+    padding: 150px 0; /* Substitui o padding da classe Owl Carousel removida */
+}
+
+.single-tesimonial {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%); /* Centraliza verticalmente o conteúdo */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+    z-index: 1;
+}
+.single-tesimonial.active-testimonial {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Ajuste para o contêiner dos dots do testemunho */
+.testimonial-dots {
+    position: relative; 
+    bottom: auto; 
+    margin-top: 30px;
+}
