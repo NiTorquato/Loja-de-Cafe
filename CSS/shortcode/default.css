@@ -623,4 +623,54 @@ textarea {
   margin-bottom: 70px;
 }
 
+.breadcrumb-area {
+    padding: 256px 0 178px;
+}
 
+.breadcrumb-text {
+    position: relative;
+    z-index: 1;
+}
+.breadcrumb-bar .breadcrumb {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    line-height: 12px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+.breadcrumb-text h3 {
+    color: #ffffff;
+    font-family: 'Courgette', cursive;
+    line-height: 26px;
+    margin-bottom: 24px;
+    text-transform: capitalize;
+    font-size: 36px;
+}
+.breadcrumb-bar li {
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 14px;
+    margin: 0 19px;
+    position: relative;
+    text-transform: uppercase;
+}
+.breadcrumb-bar .breadcrumb > li:first-child::before {
+    color: #ffffff;
+    content: "//";
+    display: inline-block;
+    position: absolute;
+    right: 24px;
+    top: 0;
+}
+.breadcrumb-bar .breadcrumb > li + li::before {
+    display: none;
+}
+.breadcrumb-bar a {
+    color: #ffffff;
+}
+.breadcrumb-bar a:hover {
+    color: #614a3d;
+}
+.breadcrumb-bar li:first-child {
+    margin-left: 0;
+}
