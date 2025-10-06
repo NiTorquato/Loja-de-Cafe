@@ -394,3 +394,15 @@
 .menu-section .col-md-3:nth-child(8) .single-menu {
     margin-bottom: 63px;
 }
+/* --- CORREÇÃO FINAL PARA FORÇAR O CARREGAMENTO DAS IMAGENS DE FUNDO do MENU --- */
+
+/* 1. Breadcrumb Area (bg-4) */
+.breadcrumb-area {
+    min-height: 250px !important; /* Garante altura para aparecer */
+    background-image: url('./img/bg/2.jpg') !important; 
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    display: flex;
+    align-items: center;
+}

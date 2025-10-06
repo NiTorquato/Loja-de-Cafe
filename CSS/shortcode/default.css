@@ -659,7 +659,7 @@ textarea {
     content: "//";
     display: inline-block;
     position: absolute;
-    right: 24px;
+    right: -25px;
     top: 0;
 }
 .breadcrumb-bar .breadcrumb > li + li::before {
